@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:vistaar/infrastructure/colors.dart';
+import 'package:vistaar/infrastructure/constants.dart';
+import 'package:vistaar/presentation/widgets/common/custom_chip.widget.dart';
 
 class FolderWidget extends StatelessWidget {
   const FolderWidget({
@@ -8,29 +10,48 @@ class FolderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Column(
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: colors[0]),
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ImageIcon(
-            const AssetImage(
-              "assets/folder.png",
-            ),
-            size: constraints.maxWidth - 30,
-            color: const Color(0xFFa2d2ff),
+          Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.white54,
+                radius: 25,
+                child: Center(
+                    child: Image.asset(
+                  logoImages[0],
+                  height: 30,
+                )),
+              ),
+              Spacer(),
+              CustomChip(label: "private", color: Colors.white),
+            ],
           ),
-          const Text(
-            "Anchoring Scripts",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(
+          SizedBox(
             height: 5,
           ),
-          const Text(
-            "2 Item(s)",
-            style: TextStyle(color: Colors.grey, fontSize: 12),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: Text(
+              "Anchoring Scripts",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Text(
+              "last updated on 07/27/23",
+              style: TextStyle(fontSize: 11, color: Colors.black38),
+            ),
           )
         ],
-      );
-    });
+      ),
+    );
   }
 }

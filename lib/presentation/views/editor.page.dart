@@ -34,9 +34,6 @@ class _EditorPageState extends State<EditorPage> {
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         child: Column(
           children: [
-            Expanded(
-                child: quill.QuillEditor.basic(
-                    controller: controller, readOnly: false)),
             Container(
               padding: const EdgeInsets.only(
                 top: 8,
@@ -49,7 +46,7 @@ class _EditorPageState extends State<EditorPage> {
               ], color: Colors.black, borderRadius: BorderRadius.circular(10)),
               child: quill.QuillToolbar.basic(
                 showClearFormat: false,
-                toolbarIconSize: 22,
+                toolbarIconSize: 19,
                 color: Colors.black,
                 iconTheme: const quill.QuillIconTheme(
                     borderRadius: 10,
@@ -69,7 +66,10 @@ class _EditorPageState extends State<EditorPage> {
             ),
             const SizedBox(
               height: 30,
-            )
+            ),
+            Expanded(
+                child: quill.QuillEditor.basic(
+                    controller: controller, readOnly: false)),
           ],
         ),
       ),
